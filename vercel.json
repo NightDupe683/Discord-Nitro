@@ -1,1 +1,14 @@
-{}
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "main.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/(.*\\.css)", "dest": "/$1" },       // serve CSS files
+    { "src": "/(.*\\.html)", "dest": "/$1" },      // serve HTML files
+    { "src": "/(.*)", "dest": "/main.js" }         // all other requests → Node
+  ]
+}
